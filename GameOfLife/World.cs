@@ -38,9 +38,7 @@ namespace GameOfLife
             {
                 for (var x = d.MinX; x <= d.MaxX; x++)
                 {
-                    // ReSharper disable PossibleInvalidOperationException
-                    Console.Write(_grid.Has(x.Value, y.Value) ? "X" : "-");
-                    // ReSharper restore PossibleInvalidOperationException
+                    Console.Write(_grid.Has(x, y) ? "X" : "-");
                 }
                 Console.WriteLine();
             }

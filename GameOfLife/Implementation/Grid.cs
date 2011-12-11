@@ -23,16 +23,10 @@ namespace GameOfLife.Implementation
         public Dimensions GetDimensions()
         {
             var d = new Dimensions();
-            foreach (var p in _points)
+            foreach (var p in _points.Values)
             {
-                if (d.MinX == null || p.Value.X < d.MinX)
-                    d.MinX = p.Value.X;
-                if (d.MaxX == null || p.Value.X > d.MaxX)
-                    d.MaxX = p.Value.X;
-                if (d.MinY == null || p.Value.Y < d.MinY)
-                    d.MinY = p.Value.Y;
-                if (d.MaxY == null || p.Value.Y > d.MaxY)
-                    d.MaxY = p.Value.Y;
+                d.X = p.X;
+                d.Y = p.Y;
             }
             return d;
         }
@@ -65,10 +59,51 @@ namespace GameOfLife.Implementation
 
     public class Dimensions
     {
-        public int? MinX { get; set; }
-        public int? MaxX { get; set; }
-        public int? MinY { get; set; }
-        public int? MaxY { get; set; }
+        private int? _minX;
+        public int MinX
+        {
+            get { return _minX == null ? 0 : _minX.Value; }
+        }
+
+        private int? _maxX;
+        public int MaxX
+        {
+            get { return _maxX == null ? 0 : _maxX.Value; }
+        }
+
+        private int? _minY;
+        public int MinY
+        {
+            get { return _minY == null ? 0 : _minY.Value; }
+        }
+
+        private int? _maxY;
+        public int MaxY
+        {
+            get { return _maxY == null ? 0 : _maxY.Value; }
+        }
+
+        public int X
+        {
+            set
+            {
+                if (_minX == null || value < _minX)
+                    _minX = value;
+                if (_maxX == null || value > _maxX)
+                    _maxX = value;
+            }
+        }
+
+        public int Y
+        {
+            set
+            {
+                if (_minY == null || value < _minY)
+                    _minY = value;
+                if (_maxY == null || value > _maxY)
+                    _maxY = value;
+            }
+        }
     }
 
     public class Point

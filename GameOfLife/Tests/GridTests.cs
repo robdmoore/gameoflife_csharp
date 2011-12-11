@@ -11,10 +11,10 @@ namespace GameOfLife.Tests
         {
             var d = new Grid().GetDimensions();
 
-            Assert.That(d.MinX, Is.Null);
-            Assert.That(d.MaxX, Is.Null);
-            Assert.That(d.MinY, Is.Null);
-            Assert.That(d.MaxY, Is.Null);
+            Assert.That(d.MinX, Is.EqualTo(0));
+            Assert.That(d.MaxX, Is.EqualTo(0));
+            Assert.That(d.MinY, Is.EqualTo(0));
+            Assert.That(d.MaxY, Is.EqualTo(0));
         }
 
         [Test]
