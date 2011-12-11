@@ -7,7 +7,7 @@ namespace GameOfLife.Tests
     class PointShould
     {
         [Test]
-        public void Equals_the_same_point()
+        public void Equal_the_same_point()
         {
             var p = new Point(1, 2);
             var p2 = new Point(1, 2);
@@ -15,7 +15,7 @@ namespace GameOfLife.Tests
         }
 
         [Test]
-        public void Doesnt_equal_a_different_point()
+        public void Not_equal_a_different_point()
         {
             var p = new Point(1, 2);
             var p2 = new Point(1, 1);
@@ -23,7 +23,7 @@ namespace GameOfLife.Tests
         }
 
         [Test]
-        public void Converts_to_a_string()
+        public void Convert_to_a_string()
         {
             var p = new Point(1, 2);
             var p2 = new Point(1, 1);
