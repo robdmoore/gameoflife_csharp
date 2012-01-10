@@ -10,11 +10,12 @@ namespace GameOfLife2
             var newAliveCells = new HashSet<Coordinate>();
             foreach (var aliveCell in aliveCells)
             {
-                if (Cell.GetNewState(true, aliveCell.GetAliveNeighbours(aliveCells)))
+                if (aliveCell.RemainsAlive(aliveCells))
                     newAliveCells.Add(aliveCell);
+
                 aliveCell.GetNeighbours().Where(c =>
                     !aliveCells.Contains(c) &&
-                    Cell.GetNewState(false, c.GetAliveNeighbours(aliveCells))
+                    c.BecomesAlive(aliveCells)
                 ).ToList().ForEach(c => newAliveCells.Add(c));
             }
             return newAliveCells;
