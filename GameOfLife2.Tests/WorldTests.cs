@@ -24,6 +24,10 @@ namespace GameOfLife2.Tests
             var ints = new[] {1,2, 0,0, 1,1};
 
             var coords = new HashSet<Coordinate>();
+            for (var i = 0; i < ints.Length; i+=2)
+            {
+                coords.Add(new Coordinate(ints[i], ints[i + 1]));
+            }
 
             Assert.That(coords, Has.Count.EqualTo(3));
             Assert.That(coords, Has.Member(new Coordinate(1,2)));
