@@ -52,6 +52,7 @@
     <Compile Include="CellTests.cs" />
     <Compile Include="CoordinateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorldTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
