@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameOfLife2
 {
@@ -23,6 +24,11 @@ namespace GameOfLife2
                 new Coordinate(X-1, Y+1),
                 new Coordinate(X-1, Y  ),
             };
+        }
+
+        public int GetAliveNeighbours(ICollection<Coordinate> aliveCells)
+        {
+            return GetNeighbours().Count(aliveCells.Contains);
         }
     }
 }
