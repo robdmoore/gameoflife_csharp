@@ -22,7 +22,7 @@ namespace GameOfLife2
             return newAliveCells;
         }
 
-        public static HashSet<Coordinate> IntsToCoords(IList<int> ints)
+        public static ISet<Coordinate> IntsToCoords(IList<int> ints)
         {
             var coords = new HashSet<Coordinate>();
             for (var i = 0; i < ints.Count; i += 2)
