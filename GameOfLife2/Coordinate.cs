@@ -35,5 +35,10 @@ namespace GameOfLife2
         {
             return Cell.GetNewState(alive.Contains(this), GetAliveNeighbours(alive));
         }
+
+        public bool BecomesAlive(ISet<Coordinate> alive)
+        {
+            return RemainsAlive(alive);
+        }
     }
 }

@@ -87,7 +87,7 @@ namespace GameOfLife2.Tests
         public void Return_next_state_given_list_of_alive_cells_for_dead_cell_becoming_alive()
         {
             var cell = new Coordinate(0, 0);
-            var alive = new HashSet<Coordinate> { new Coordinate(-1, -1), new Coordinate(1, 1) };
+            var alive = new HashSet<Coordinate> { new Coordinate(-1, -1), new Coordinate(1, 1), new Coordinate(1, 0) };
             Assert.That(cell.BecomesAlive(alive));
         }
 
