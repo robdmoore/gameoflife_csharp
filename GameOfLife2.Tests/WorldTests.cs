@@ -11,7 +11,16 @@ namespace GameOfLife2.Tests
         public void Convert_set_of_alive_cells_to_new_set_of_alive_cells()
         {
             var aliveCells = new HashSet<Coordinate> {new Coordinate(0,1), new Coordinate(1,1), new Coordinate(2,1)};
+            var newAliveCells = Tick(aliveCells);
 
+            Assert.That(newAliveCells, Has.Count.EqualTo(3));
+            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 0)));
+            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 1)));
+            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 2)));
+        }
+
+        private static ISet<Coordinate> Tick(ISet<Coordinate> aliveCells)
+        {
             var newAliveCells = new HashSet<Coordinate>();
             foreach (var aliveCell in aliveCells)
             {
@@ -22,11 +31,7 @@ namespace GameOfLife2.Tests
                     Cell.GetNewState(false, c.GetAliveNeighbours(aliveCells))
                 ).ToList().ForEach(c => newAliveCells.Add(c));
             }
-
-            Assert.That(newAliveCells, Has.Count.EqualTo(3));
-            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 0)));
-            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 1)));
-            Assert.That(newAliveCells, Has.Member(new Coordinate(1, 2)));
+            return newAliveCells;
         }
     }
 }
