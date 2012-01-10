@@ -17,5 +17,18 @@ namespace GameOfLife2.Tests
             Assert.That(newAliveCells, Has.Member(new Coordinate(1, 1)));
             Assert.That(newAliveCells, Has.Member(new Coordinate(1, 2)));
         }
+
+        [Test]
+        public void Convert_list_of_ints_to_set_of_coordinates()
+        {
+            var ints = new[] {1,2, 0,0, 1,1};
+
+            var coords = new HashSet<Coordinate>();
+
+            Assert.That(coords, Has.Count.EqualTo(3));
+            Assert.That(coords, Has.Member(new Coordinate(1,2)));
+            Assert.That(coords, Has.Member(new Coordinate(0,0)));
+            Assert.That(coords, Has.Member(new Coordinate(1,1)));
+        }
     }
 }
