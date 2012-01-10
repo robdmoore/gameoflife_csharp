@@ -23,7 +23,7 @@ namespace GameOfLife2.Tests
             var cell = new Coordinate(x, y);
             var aliveCells = new HashSet<Coordinate> {new Coordinate(-1, -1), new Coordinate(1, 1)};
 
-            var numNeighbours = 0;
+            var numNeighbours = cell.GetNeighbours().Count(aliveCells.Contains);
 
             var expectedNeighbours = 1;
             if (x == 0 && y == 0)
