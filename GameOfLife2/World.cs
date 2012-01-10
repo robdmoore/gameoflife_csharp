@@ -21,6 +21,16 @@ namespace GameOfLife2
             }
             return newAliveCells;
         }
+
+        public static HashSet<Coordinate> IntsToCoords(IList<int> ints)
+        {
+            var coords = new HashSet<Coordinate>();
+            for (var i = 0; i < ints.Count; i += 2)
+            {
+                coords.Add(new Coordinate(ints[i], ints[i + 1]));
+            }
+            return coords;
+        }
     }
 
     public class Cell
