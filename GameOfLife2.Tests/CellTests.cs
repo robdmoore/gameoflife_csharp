@@ -37,12 +37,7 @@ namespace GameOfLife2.Tests
 
         private static bool GetNewState(bool currentState, int numAliveNeighbours)
         {
-            var alive = currentState;
-            if (currentState && (numAliveNeighbours < 2 || numAliveNeighbours > 3))
-                alive = false;
-            if (!currentState && numAliveNeighbours == 3)
-                alive = true;
-            return alive;
+            return numAliveNeighbours == 3 || (currentState && numAliveNeighbours == 2);
         }
     }
 }
