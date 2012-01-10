@@ -45,8 +45,8 @@ namespace GameOfLife2
     {
         public Coordinate(int x, int y) : base(x, y) { }
 
-        private int X { get { return Item1; } }
-        private int Y { get { return Item2; } }
+        public int X { get { return Item1; } }
+        public int Y { get { return Item2; } }
 
         public IEnumerable<Coordinate> GetNeighbours()
         {
