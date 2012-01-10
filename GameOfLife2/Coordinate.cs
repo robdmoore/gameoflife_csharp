@@ -30,5 +30,10 @@ namespace GameOfLife2
         {
             return GetNeighbours().Count(aliveCells.Contains);
         }
+
+        public bool RemainsAlive(ISet<Coordinate> alive)
+        {
+            return Cell.GetNewState(alive.Contains(this), GetAliveNeighbours(alive));
+        }
     }
 }

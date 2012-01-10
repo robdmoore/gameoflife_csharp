@@ -67,11 +67,36 @@ namespace GameOfLife2.Tests
             Assert.That(numNeighbours, Is.EqualTo(expectedNeighbours));
         }
 
+        [Test]
         public void Return_next_state_given_list_of_alive_cells_for_live_cell_staying_alive()
         {
             var cell = new Coordinate(0, 0);
-            var alive = new HashSet<Coordinate> {new Coordinate(1,1), new Coordinate(-1,-1)};
+            var alive = new HashSet<Coordinate> { new Coordinate(0,0), new Coordinate(1,1), new Coordinate(-1,-1) };
             Assert.That(cell.RemainsAlive(alive));
+        }
+
+        [Test]
+        public void Return_next_state_given_list_of_alive_cells_for_live_cell_dieing()
+        {
+            var cell = new Coordinate(0, 0);
+            var alive = new HashSet<Coordinate> { new Coordinate(0, 0), new Coordinate(1, 1) };
+            Assert.That(cell.RemainsAlive(alive), Is.False);
+        }
+
+        [Test]
+        public void Return_next_state_given_list_of_alive_cells_for_dead_cell_becoming_alive()
+        {
+            var cell = new Coordinate(0, 0);
+            var alive = new HashSet<Coordinate> { new Coordinate(-1, -1), new Coordinate(1, 1) };
+            Assert.That(cell.BecomesAlive(alive));
+        }
+
+        [Test]
+        public void Return_next_state_given_list_of_alive_cells_for_dead_cell_dieing()
+        {
+            var cell = new Coordinate(0, 0);
+            var alive = new HashSet<Coordinate> { new Coordinate(1, 1) };
+            Assert.That(cell.BecomesAlive(alive), Is.False);
         }
     }
 }
